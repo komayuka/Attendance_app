@@ -8,8 +8,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    @user = current_user
+    if @user.update(user_params)
+      flash[:success] = "更新されました"
+      redirect_to user_params
+    else
+      render 'edit'
+    end
   end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :profile_image)
+  end
+
 end

@@ -1,10 +1,28 @@
 <h1>マイページ</h1>
+<%= render 'layouts/flash' %>
  <table class="table">
+  <thead>
+   <tr>
+     <th>画像</th>
+     <td><% if current_user.profile_image == nil %>
+          <%= image_tag ('no_image.png'), size: '120x120' %>
+         <% else %>
+          <%= attachment_image_tag current_user, :profile_image, size: '120x120' %>
+         <% end %>
+     </td>
+   </tr>
    <tr>
      <th>名前</th>
      <td><%= current_user.name %></td>
    </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td></td>
+    <td></td>
+   </tr>
+  </tbody>
+ </table>
    <% if @user.id == current_user.id %>
    <p><%= link_to "編集", edit_user_path(@user) %></p>
    <% end %>
- </table>

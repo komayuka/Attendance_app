@@ -1,6 +1,12 @@
 <h1>投稿一覧</h1>
- <% @animes.each do |anime| %>
- <table>
+ <%= render 'layouts/flash' %>
+
+ <table class="table">
+  <div class="text-right">
+   <%= link_to new_anime_path, class: "btn btn-secondary text-right" do %>
+   <i class="fas fa-plus-circle"></i>
+   <% end %>
+  </div>
    <thead>
      <tr>
        <th>投稿画像</th>
@@ -10,6 +16,7 @@
      </tr>
    </thead>
    <tbody>
+    <% @animes.each do |anime| %>
      <tr>
        <td></td>
        <td><%= anime.anime_name %></td>

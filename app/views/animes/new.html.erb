@@ -1,15 +1,13 @@
 <h1>新規投稿</h1>
-<%= form_with model:@anime, local:true do |f| %>
+<%= form_with model: @anime, local:true do |f| %>
  <h4>画像</h4>
-  <%= f.attchment_field :image %>
+  <%= f.attachment_field :image %>
  <h4>題名</h4>
-  <%= f.field :anime_name %>
-  <%= f.text_filed :anime_name %>
+  <%= f.text_field :anime_name %>
  <h4>紹介</h4>
-  <%= f.field :intruduction %>
-  <%= f.text_field :introduction %>
+  <%= f.text_area :introduction %>
 
-  <%= f.submit '投稿' %>
+  <p><%= f.submit '投稿' %></p>
 <% end %>
 
 

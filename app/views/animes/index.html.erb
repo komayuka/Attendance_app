@@ -18,7 +18,13 @@
    <tbody>
     <% @animes.each do |anime| %>
      <tr>
-       <td></td>
+       <td>
+        <% if anime.image == nil %>
+         <%= image_tag ('no_image.png'), size: '45x45' %>
+        <% else %>
+         <%= attachment_image_tag anime, :image, size: '45x45' %>
+        <% end %>
+       </td>
        <td>
         <%= link_to anime_path(anime.id) do %>
         <%= anime.anime_name %>

@@ -19,8 +19,12 @@
     <% @animes.each do |anime| %>
      <tr>
        <td></td>
-       <td><%= anime.anime_name %></td>
-       <td><%= anime.intruduction %></td>
+       <td>
+        <%= link_to anime_path(anime.id) do %>
+        <%= anime.anime_name %>
+        <% end %>
+        </td>
+       <td><%= anime.introduction %></td>
        <td><%= anime.user.name %></td>
      </tr>
    </tbody>

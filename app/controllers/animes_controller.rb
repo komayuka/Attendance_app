@@ -26,6 +26,9 @@ class AnimesController < ApplicationController
   end
 
   def destroy
+    @anime = Anime.find(params[:id])
+    @anime.destroy
+    redirect_to animes_path
   end
 
  private

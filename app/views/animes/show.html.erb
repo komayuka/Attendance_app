@@ -6,6 +6,7 @@
       <th>題名</th>
       <th>紹介</th>
       <th>投稿者</th>
+      <th></th>
      </tr>
     </thead>
     <tbody>
@@ -20,6 +21,11 @@
       <td><%= @anime.anime_name %></td>
       <td><%= @anime.introduction %></td>
       <td><%= @anime.user.name %></td>
+      <td>
+       <% if @anime.user == current_user %>
+        <%= link_to "削除", anime_path(@anime), method: :delete, data: {confirm: "削除しますか？"} %>
+       <% end %>
+      </td>
      </tr>
     </tbody>
   </table>
